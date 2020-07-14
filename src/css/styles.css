@@ -1,0 +1,42 @@
+:root {
+    --black: #000000;
+    --font-color: #eee;
+}
+
+@font-face {
+    font-family: telegrama;
+    src: url(../static/telegrama.ttf);
+}
+
+body {
+    background-color: var(--black);
+    color: var(--font-color);
+}
+
+body a:visited {
+    color: var(--font-color);
+}
+
+* {
+    font-family: telegrama;
+}
+
+.hidden {
+    color: var(--black);
+}
+
+.hidden a:link {
+    color: var(--black);
+}
+
+.hidden a:visited {
+    color: var(--black);
+}
+  
+.hidden a:hover {
+    color: var(--font-color);
+}
+  
+.hidden a:active {
+    color: var(--black);
+}
