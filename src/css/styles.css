@@ -8,7 +8,12 @@
     src: url(../static/telegrama.ttf);
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
+    margin: 0;
     background-color: var(--black);
     color: var(--font-color);
 }
@@ -19,6 +24,27 @@ body a:visited {
 
 * {
     font-family: telegrama;
+}
+
+#clockdiv {
+    font-size: 70pt;
+}
+
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-item {
+    text-align: center;
 }
 
 .hidden {

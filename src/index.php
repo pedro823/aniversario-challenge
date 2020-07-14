@@ -18,7 +18,11 @@ session_start();
     <? if (!empty($_SESSION['user'])) { ?>
         <a href="logout.php">Logout</a>
     <? } ?>
-    <div id="clockdiv"></div>
+    <div class="flex-container">
+        <div class="flex-item">
+            <div id="clockdiv"></div>
+        </div>
+    </div>
     <div class="hidden"><a href="login.php">Login</a></div>
 
     <script async defer src="js/index.js"></script>
