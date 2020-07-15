@@ -18,23 +18,55 @@ function getDeadline() {
 };
 
 function twoDigitNumber(num) {
-  return num.toLocaleString(undefined, {minimumIntegerDigits: 2})
+  return num.toLocaleString(undefined, {minimumIntegerDigits: 2});
+}
+
+let isBombActiveCache = null;
+function isBombActive() {
+  if (isBombActiveCache !== null) {
+    return isBombActiveCache;
+  }
+
+  return fetch('/is_active.php').then(res => res.json()).then(res => {
+    isBombActiveCache = res;
+    return res;
+  }).catch(err => {
+    console.error('Could not fetch is_active, assuming bomb is active');
+    console.error({err});
+    return true;
+  });
+}
+
+function countdownTimer(element) {
+  const timeFunc = () => {
+    const t = getDeadline();
+    element.innerHTML = twoDigitNumber(t.days) + 
+                      ':' + twoDigitNumber(t.hours) + 
+                      ':' + twoDigitNumber(t.minutes) + 
+                      ':' + twoDigitNumber(t.seconds);
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+  timeFunc();
+  const timeinterval = setInterval(timeFunc, 1000);
+}
+
+function defusedTimer(element) {
+  let defusedClock = document.createElement('div');
+  defusedClock.innerHTML = 'DEFUSED';
+  defusedClock.setAttribute('class', 'defused');
+  element.appendChild(defusedClock);
 }
 
 function initializeClock(id) {
-    const clock = document.getElementById(id);
-    const timeFunc = () => {
-      const t = getDeadline();
-      clock.innerHTML = twoDigitNumber(t.days) + 
-                        ':' + twoDigitNumber(t.hours) + 
-                        ':' + twoDigitNumber(t.minutes) + 
-                        ':' + twoDigitNumber(t.seconds);
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
+  const clock = document.getElementById(id);
+  isBombActive().then(res => {
+    if (res) {
+      return countdownTimer(clock);
     }
-    timeFunc();
-    const timeinterval = setInterval(timeFunc, 1000);
+    return defusedTimer(clock);
+  });
 }
 
 initializeClock('clockdiv');

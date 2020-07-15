@@ -22,6 +22,20 @@ body a:visited {
     color: var(--font-color);
 }
 
+.defused {
+    animation: blinker 1.5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    color: #3fd10a;
+}
+  
+@keyframes blinker {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
 * {
     font-family: telegrama;
 }
