@@ -11,7 +11,8 @@ VALUES            ('admin', 'L7685rQf2CWpG6nM', 1);
 CREATE TABLE bombs (
 	bomb_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	defuse_password TEXT NOT NULL,
+	attempts_left INTEGER NOT NULL,
 	active INTEGER NOT NULL
 );
 
-INSERT INTO bombs (active, defuse_password) VALUES (1, 'rozhdenye');
+INSERT INTO bombs (active, defuse_password, attempts_left) VALUES (1, 'rozhdenye', 10);

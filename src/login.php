@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="static/favicon.ico"/>
 </head>
 <body>
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -66,7 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <button type="submit">Login</button>
     </div>
   </form>
-
-<a href="index.php">Back</a>
+  <a href="index.php">Back</a>
 </body>
 </html>
