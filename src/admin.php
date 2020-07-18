@@ -20,16 +20,18 @@ $emails = scandir('emails');
 </head>
 <body>
 
-<table class="tftable">
-    <tr><th>Emails</th></tr>
-<? for ($i = 0; $i < count($emails); $i++) { 
-    if (in_array($emails[$i], array(".", "..", ".htaccess"), true)) continue;
-?>
-    <tr>
-        <td><a href="view_email.php?email=<? echo $emails[$i]; ?>"><? echo $emails[$i]; ?></a></td>
-    </tr>
-<? } ?>
-</table>
+<div class="container">
+    <table class="tftable">
+        <tr><th>Emails</th></tr>
+        <? for ($i = 0; $i < count($emails); $i++) { 
+            if (in_array($emails[$i], array(".", "..", ".htaccess"), true)) continue;
+            ?>
+        <tr>
+            <td><a href="view_email.php?email=<? echo $emails[$i]; ?>"><? echo $emails[$i]; ?></a></td>
+        </tr>
+    <? } ?>
+    </table>
+</div>
 
 </body>
 </html>
