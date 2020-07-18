@@ -47,7 +47,7 @@ function onPost() {
         return;
     }
 
-    $password = md5(strtolower($_REQUEST['password']));
+    $password = md5(trim($_REQUEST['password']));
     $defused = FALSE;
     if ($password === $bomb['defuse_password']) {
         $defused = TRUE;
