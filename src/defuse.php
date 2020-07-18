@@ -47,9 +47,9 @@ function onPost() {
         return;
     }
 
-    $password = strtolower($_REQUEST['password']);
+    $password = md5(strtolower($_REQUEST['password']));
     $defused = FALSE;
-    if ($password === strtolower($bomb['defuse_password'])) {
+    if ($password === $bomb['defuse_password']) {
         $defused = TRUE;
     } else {
         $chances--;

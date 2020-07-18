@@ -15,4 +15,4 @@ CREATE TABLE bombs (
 	active INTEGER NOT NULL
 );
 
-INSERT INTO bombs (active, defuse_password, attempts_left) VALUES (1, 'rozhdenye', 10);
+INSERT INTO bombs (active, defuse_password, attempts_left) VALUES (1, 'ce4437cf6f1c409926de0f5638981f34', 10);

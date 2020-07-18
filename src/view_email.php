@@ -6,7 +6,7 @@ if (!$_SESSION['is_admin']) {
     die();
 }
 
-header('Content-type: text/plain');
+header('Content-type: text/html');
 
 $all_files = scandir('emails');
 $forbidden_files = array('.', '..', '.htaccess');
